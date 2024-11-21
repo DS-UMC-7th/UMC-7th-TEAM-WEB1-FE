@@ -1,16 +1,15 @@
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import MainPage from "./pages/Main.jsx";
 import NotFound from "./pages/not-found.jsx";
 import RootLayout from "./layout/root-layout.jsx";
-import Recent from "./pages/RecentReview.jsx"
-import Popularity from "./pages/PopularityReview.jsx";
 import WriteReview from "./pages/WriteReview.jsx";
 import ReviewDetail from "./pages/ReviewDetail.jsx";
+import Reviews from "./pages/Reviews.jsx";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <RootLayout />,
     errorElement: <NotFound />,
     children: [
@@ -19,23 +18,19 @@ const router = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: 'review',
+        path: "review",
         children: [
           {
-            path: 'recent',
-            element: <Recent />,
+            path: "list",
+            element: <Reviews />,
           },
           {
-            path: 'popularity',
-            element: <Popularity />,
-          },
-          {
-            path: 'write',
-            element: <WriteReview />,
-          },
-          {
-            path: 'detail',
+            path: "detail",
             element: <ReviewDetail />,
+          },
+          {
+            path: "write",
+            element: <WriteReview />,
           },
         ],
       },
@@ -44,8 +39,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router}/>
+  return <RouterProvider router={router} />;
 }
-
 
 export default App;
