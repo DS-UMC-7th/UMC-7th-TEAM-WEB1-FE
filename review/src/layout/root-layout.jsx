@@ -1,6 +1,7 @@
 import Navbar from '../components/header/NavBar.jsx';
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
+import Footer from '../pages/Footer.jsx';
 
 const RootLayout = () => {
     return (
@@ -11,6 +12,7 @@ const RootLayout = () => {
             <Outlet />
           </ContentWrapper>
         </MainContent>
+        <Footer />
       </>
     );
   };
@@ -20,6 +22,7 @@ export default RootLayout;
 export const MainContent = styled.div`
     display: flex;
     background-color: white;
+    flex: 1;
 `;
   
 export const ContentWrapper = styled.div`
