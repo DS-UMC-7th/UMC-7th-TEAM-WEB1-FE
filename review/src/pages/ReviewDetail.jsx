@@ -1,8 +1,11 @@
 import styled from 'styled-components'
+import ReviewDetailTopPage from '../components/review/ReviewDetailTop';
 
 const ReviewDetail = () => {
     return (
-        <StyledContent>ReviewDetail Page</StyledContent>
+        <StyledContent>
+            <ReviewDetailTopPage/>
+        </StyledContent>
     );
 };
 
