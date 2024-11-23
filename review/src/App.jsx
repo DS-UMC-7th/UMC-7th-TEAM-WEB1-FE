@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainPage from "./pages/Main.jsx";
 import NotFound from "./pages/not-found.jsx";
 import RootLayout from "./layout/root-layout.jsx";
-import WriteReview from "./pages/WriteReview.jsx";
+import WriteReview from "./pages/ReviewWrite/WriteReview.jsx"
 import ReviewDetail from "./pages/ReviewDetail.jsx";
 import Reviews from "./pages/Reviews.jsx";
 
