@@ -1,18 +1,13 @@
-import styled from "styled-components";
-import font from "../styles/font";
-import color from "../styles/color";
+import ReviewFilterAlign from "../components/review/review-all/ReviewFilter";
+import ReviewList from "../components/review/review-all/ReviewList";
 
 const Reviews = () => {
-  return <StyledContent>Reviews Page</StyledContent>;
+  return (
+    <>
+      <ReviewFilterAlign />
+      <ReviewList />
+    </>
+  );
 };
 
 export default Reviews;
-
-const StyledContent = styled.h1`
-  height: 100%;
-  background-color: white;
-  color: black;
-  margin-top: 5px;
-  color: ${color.primary_main};
-  ${font.pre_medium_18}
-`;
