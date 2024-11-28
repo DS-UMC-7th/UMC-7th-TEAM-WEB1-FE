@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import * as S from "./ReviewAll.style";
 import StarOnPng from "../../../assets/icon/star-filled-25x26.png";
 import StarOffPng from "../../../assets/icon/star-empty-25x26.png";
@@ -10,9 +11,14 @@ export default function ReviewCard({
   reviewContent,
   reviewStarNum = 5,
 }) {
+  const navigate = useNavigate();
+  const handleMoveToDetail = () => {
+    navigate(`/review/detail`);
+  };
+
   return (
     <>
-      <S.ReviewCardContainer>
+      <S.ReviewCardContainer onClick={handleMoveToDetail}>
         <div>
           <S.ReviewMainContainer>
             <S.ReviewClassTitle>{reviewTitle}</S.ReviewClassTitle>

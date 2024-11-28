@@ -105,6 +105,8 @@ export const ReviewCardContainer = styled.div`
   border-top: 1px solid ${color.primary_main};
   border-bottom: 1px solid ${color.primary_main};
   background-color: ${color.review_bg};
+
+  cursor: pointer;
 `;
 
 export const ReviewMainContainer = styled.div`
