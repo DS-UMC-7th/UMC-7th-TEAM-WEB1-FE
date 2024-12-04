@@ -15,7 +15,7 @@ const PopularReviews = () => {
   // 데이터 가져오기 함수
   const fetchReviews = async () => {
     try {
-      const response = await fetch("http://3.38.66.123:3000/reviews/popular");
+      const response = await fetch("http://3.38.66.123:3000/reviews/popular?limit=4");
       if (!response.ok) {
         throw new Error("Failed to fetch reviews");
       }

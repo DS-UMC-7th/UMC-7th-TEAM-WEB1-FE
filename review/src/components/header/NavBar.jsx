@@ -31,7 +31,7 @@ const Navbar = () => {
         console.log("검색 결과:", data);
 
         // 검색 결과 페이지로 이동하면서 데이터 전달
-        navigate("/review/list", { state: { results: data } });
+        navigate("/review/list", { state: { results: data.results } });
       } catch (error) {
         console.error("검색 오류:", error.message);
       }
