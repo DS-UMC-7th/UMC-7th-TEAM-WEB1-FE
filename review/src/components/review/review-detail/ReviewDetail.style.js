@@ -258,7 +258,7 @@ export const ContainerStart = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   ${font.eli_medium_15}
 `;
 export const ReviewContent = styled.p`

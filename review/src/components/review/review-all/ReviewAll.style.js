@@ -11,7 +11,7 @@ export const SpaceBetween = css`
 
 // ReviewFilter
 export const ReviewFilterContainer = styled.div`
-  padding: 4rem 12.4rem 9rem 12.4rem;
+  padding: 4rem 12.4rem;
   ${SpaceBetween}
 `;
 export const FlexContainer = styled.div`
@@ -101,6 +101,7 @@ export const AlignText = styled.p`
 export const ReviewCardContainer = styled.div`
   margin-bottom: 5.5rem;
   padding: 6.2rem 12.4rem;
+  padding: ${(props) => props.$width && `6.2rem ${props.$width}`};
 
   border-top: 1px solid ${color.primary_main};
   border-bottom: 1px solid ${color.primary_main};
@@ -119,6 +120,7 @@ export const ReviewClassTitle = styled.p`
   letter-spacing: 0.48px;
 `;
 export const ReviewStarList = styled.div`
+  margin-left: 1.6rem;
   display: flex;
   justify-content: flex-end;
 `;
