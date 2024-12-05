@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import color from "../../styles/color";
 
 const ImageUpload = ({ onImageUpload }) => {
 
@@ -24,7 +25,7 @@ const ImageUpload = ({ onImageUpload }) => {
   }
 
   return(
-    <>
+    <ImgContainer>
       <p>강의 사진 등록</p>
       <label htmlFor="img">
         { image ? (
@@ -34,11 +35,17 @@ const ImageUpload = ({ onImageUpload }) => {
         ) }
       </label>
         <Input type='file' accept='image/*' id="img" onChange={handleImageUpload} />
-      </>
+      </ImgContainer>
   );
 }
 
 export default ImageUpload;
+
+const ImgContainer = styled.div`
+  p {
+    margin-bottom: 15px;
+  }
+`;
 
 const ClassImg = styled.img`
   width: 500px;
@@ -52,9 +59,9 @@ const Input = styled.input`
 const Rectangle = styled.div`
   width: 200px;
   height: 200px;
-  border: 2px solid #E55F00;
+  border: 2px solid ${color.primary_main};
   background-color: transparent;
-  font-size: 3rem;
+  font-size: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;

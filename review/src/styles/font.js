@@ -21,6 +21,7 @@ const font = {
   eli_bold_36: FONT({ family: "Elice DX Neolli", weight: 700, size: 3.6 }),
 
   // Pretendard
+  pre_medium_14: FONT({ family: "Pretendard", weight: 500, size: 1.4 }),
   pre_medium_18: FONT({ family: "Pretendard", weight: 500, size: 1.8 }),
   pre_medium_20: FONT({ family: "Pretendard", weight: 500, size: 2.0 }),
 };

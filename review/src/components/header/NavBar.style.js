@@ -47,7 +47,13 @@ export const NavButton = styled(Link)`
   &:hover {
     color: gray;
   }
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+    padding: 0.3rem 0.8rem;
+  }
 `;
+
 
 export const SearchBar = styled.div`
   display: flex;
@@ -56,7 +62,7 @@ export const SearchBar = styled.div`
   border-radius: 20px;
   padding: 0.5rem 1rem;
   background-color: #F1F1F1;
-  width: 350px;
+  width: 355px;
   justify-content: center;
 
   input {
@@ -70,6 +76,11 @@ export const SearchBar = styled.div`
     &::placeholder {
       color: #aaa;
     }
+
+    @media (max-width: 768px) {
+      width: 220px;
+      font-size: 12px;
+    }
   }
 
   button {
@@ -79,6 +90,15 @@ export const SearchBar = styled.div`
 
     img {
       width: 20px;
+
+      @media (max-width: 768px) {
+        width: 16px;
+      }
     }
+  }
+
+  @media (max-width: 768px) {
+    width: 280px;
+    padding: 0.3rem 0.8rem;
   }
 `;

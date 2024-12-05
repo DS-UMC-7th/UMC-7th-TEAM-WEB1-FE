@@ -13,7 +13,7 @@ export default function ReviewCard({
 }) {
   const navigate = useNavigate();
   const handleMoveToDetail = () => {
-    navigate(`/review/detail`);
+    navigate(`/review/detail/1`);
   };
 
   return (
