@@ -8,32 +8,10 @@ const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
-  const handleSearch = async () => {
+  const handleSearch = () => {
     if (searchTerm.trim() !== "") {
-      try {
-        const response = await fetch(
-          `http://3.38.66.123:3000/api/lectures/search?keyword=${encodeURIComponent(
-            searchTerm
-          )}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("검색 결과를 가져오는 데 실패했습니다.");
-        }
-
-        const data = await response.json();
-        console.log("검색 결과:", data);
-
-        navigate("/review/list", { state: { results: data.result } });
-      } catch (error) {
-        console.error("검색 오류:", error.message);
-      }
+      // 검색어를 URL 파라미터로 전달하면서 SearchPage로 이동
+      navigate(`/search?keyword=${encodeURIComponent(searchTerm)}`);
     }
   };
 

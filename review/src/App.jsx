@@ -6,6 +6,7 @@ import RootLayout from "./layout/root-layout.jsx";
 import WriteReview from "./pages/ReviewWrite/WriteReview.jsx"
 import ReviewDetail from "./pages/ReviewDetail.jsx";
 import Reviews from "./pages/Reviews.jsx";
+import SearchPage from "./pages/SearchPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
             element: <WriteReview />,
           },
         ],
+      },
+
+      {
+        path: "search", // 검색 경로 추가
+        element: <SearchPage />,
       },
     ],
   },
