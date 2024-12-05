@@ -35,7 +35,7 @@ export default function ReviewDetailRating() {
         totalReview: response.data.result.totalReview,
         ratingCount: response.data.result.ratingCount,
       }));
-      console.log("별점 통계 조회: ", response.data.result); // 성공
+      // console.log("별점 통계 조회: ", response.data.result); // 성공
     } catch (error) {
       console.error("별점 통계 조회 실패:", error.response?.data || error.message);
     }

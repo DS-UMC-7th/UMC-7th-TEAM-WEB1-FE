@@ -1,10 +1,7 @@
-import { useState } from "react";
 import * as S from "./ReviewDetail.style";
 import FilterComp from "./FilterComp";
 
-export default function ReviewDetailFilter() {
-  const [alignSelected, setAlignSelected] = useState(1);
-
+export default function ReviewDetailFilter({ alignSelected, setAlignSelected }) {
   const handleClickAlignBtn = (num) => {
     setAlignSelected(num);
   };

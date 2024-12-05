@@ -2,14 +2,35 @@ import * as S from "./ReviewDetail.style";
 import StarOnPng from "../../../assets/icon/star-filled-25x26.png";
 import StarOffPng from "../../../assets/icon/star-empty-25x26.png";
 import LikeSvg from "../../../assets/icon/like-25x24.svg";
+import axios from "axios";
 
 export default function ReviewDetailCard({
+  reviewId,
   reviewStarNum = 5,
   reviewLikeNum,
   reviewDate,
   reviewtTerm,
   reviewContent,
 }) {
+  // api 연결
+  const api = axios.create({
+    baseURL: "http://3.38.66.123:3000",
+  });
+
+  async function postReviewRecommend() {
+    try {
+      const response = await api.get(`/comments/${reviewId}/recommend`);
+
+      console.log("따봉: ", response.data); // 성공
+    } catch (error) {
+      console.error("따봉 실패:", error.response?.data || error.message);
+    }
+  }
+
+  const handleRecommendBtn = () => {
+    postReviewRecommend();
+  };
+
   return (
     <>
       <S.ReviewContainer>
@@ -22,7 +43,7 @@ export default function ReviewDetailCard({
               <S.ReviewStar2 key={index} src={StarOffPng} alt="빈 별" />
             ))}
           </S.ReviewStarList2>
-          <S.LikeBtn>
+          <S.LikeBtn onClick={handleRecommendBtn}>
             <S.LikeImg src={LikeSvg} alt="따봉" />
             {reviewLikeNum}
           </S.LikeBtn>

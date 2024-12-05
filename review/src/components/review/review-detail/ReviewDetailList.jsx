@@ -8,7 +8,10 @@ import ArrowLeftSvg from "../../../assets/icon/arrow-left-10x16.svg";
 import ArrowRightSvg from "../../../assets/icon/arrow-right-10x16.svg";
 
 export default function ReviewDetailList() {
+  const [reviewArray, setReviewArray] = useState(1);
   const [reviewList, setReviewList] = useState([]);
+  const [reviewList1, setReviewList1] = useState([]);
+  const [reviewList2, setReviewList2] = useState([]);
 
   // api 연결
   const api = axios.create({
@@ -23,7 +26,7 @@ export default function ReviewDetailList() {
         },
       });
 
-      setReviewList(response.data.result.reviews);
+      await setReviewList1(response.data.result.reviews);
       console.log("추천순: ", response.data.result); // 성공
     } catch (error) {
       console.error("추천순 실패:", error.response?.data || error.message);
@@ -37,6 +40,7 @@ export default function ReviewDetailList() {
         },
       });
 
+      await setReviewList2(response.data.result.reviews);
       console.log("최신순: ", response.data.result); // 성공
     } catch (error) {
       console.error("최신순 실패:", error.response?.data || error.message);
@@ -45,20 +49,29 @@ export default function ReviewDetailList() {
 
   useEffect(() => {
     getReviewsRecommended({ pageNum: 1 });
+    getReviewsLatest({ pageNum: 1 });
   }, []);
+  useEffect(() => {
+    if (reviewArray === 1) {
+      setReviewList(reviewList1);
+    } else {
+      setReviewList(reviewList2);
+    }
+  }, [reviewArray, reviewList1, reviewList2]);
 
   return (
     <>
       {/* 별점 통계 */}
       <ReviewDetailRating />
       {/* 필터링 드롭다운&추천순|최신순 */}
-      <ReviewDetailFilter />
+      <ReviewDetailFilter alignSelected={reviewArray} setAlignSelected={setReviewArray} />
       {/* 맵함수 */}
       <S.ReviewList>
         {reviewList.map((data) => (
           <>
             <ReviewDetailCard
               key={data.reviewId}
+              reviewId={data.reviewId}
               reviewStarNum={data.rating}
               reviewLikeNum={data.recommendations}
               reviewDate={data.date}

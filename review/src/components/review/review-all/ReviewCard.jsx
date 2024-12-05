@@ -10,6 +10,7 @@ export default function ReviewCard({
   reviewDate,
   reviewContent,
   reviewStarNum = 5,
+  width,
 }) {
   const navigate = useNavigate();
   const handleMoveToDetail = () => {
@@ -18,7 +19,7 @@ export default function ReviewCard({
 
   return (
     <>
-      <S.ReviewCardContainer onClick={handleMoveToDetail}>
+      <S.ReviewCardContainer onClick={handleMoveToDetail} $width={width}>
         <div>
           <S.ReviewMainContainer>
             <S.ReviewClassTitle>{reviewTitle}</S.ReviewClassTitle>
