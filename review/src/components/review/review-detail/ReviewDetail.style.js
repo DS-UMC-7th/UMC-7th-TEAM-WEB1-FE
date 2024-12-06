@@ -185,6 +185,11 @@ export const CheckBox = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
+export const StarIcon = styled.img`
+  margin-right: -1rem;
+  width: 1.5rem;
+  height: 1.4rem;
+`;
 // ReviewFilter - 추천순/최신순
 export const AlignText = styled.p`
   margin-left: 0.5rem;

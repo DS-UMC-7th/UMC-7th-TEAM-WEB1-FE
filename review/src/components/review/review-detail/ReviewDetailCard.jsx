@@ -3,6 +3,7 @@ import StarOnPng from "../../../assets/icon/star-filled-25x26.png";
 import StarOffPng from "../../../assets/icon/star-empty-25x26.png";
 import LikeSvg from "../../../assets/icon/like-25x24.svg";
 import axios from "axios";
+import { useState } from "react";
 
 export default function ReviewDetailCard({
   reviewId,
@@ -12,6 +13,7 @@ export default function ReviewDetailCard({
   reviewtTerm,
   reviewContent,
 }) {
+  const [reviewLikeNumState, setReviewLikeNumState] = useState(reviewLikeNum);
   // api 연결
   const api = axios.create({
     baseURL: "http://3.38.66.123:3000",
@@ -19,9 +21,9 @@ export default function ReviewDetailCard({
 
   async function postReviewRecommend() {
     try {
-      const response = await api.get(`/comments/${reviewId}/recommend`);
+      const response = await api.post(`/comments/${reviewId}/recommend`);
 
-      console.log("따봉: ", response.data); // 성공
+      // console.log("따봉: ", response.data); // 성공
     } catch (error) {
       console.error("따봉 실패:", error.response?.data || error.message);
     }
@@ -29,6 +31,7 @@ export default function ReviewDetailCard({
 
   const handleRecommendBtn = () => {
     postReviewRecommend();
+    setReviewLikeNumState((prev) => prev + 1);
   };
 
   return (
@@ -45,7 +48,7 @@ export default function ReviewDetailCard({
           </S.ReviewStarList2>
           <S.LikeBtn onClick={handleRecommendBtn}>
             <S.LikeImg src={LikeSvg} alt="따봉" />
-            {reviewLikeNum}
+            {reviewLikeNumState}
           </S.LikeBtn>
         </S.ContainerBetween>
         <S.ContainerStart>
