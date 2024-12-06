@@ -5,7 +5,7 @@ import * as S from "./ReviewDetail.style";
 import StarOnPng from "../../../assets/icon/star-filled-25x26.png";
 import StarOffPng from "../../../assets/icon/star-empty-25x26.png";
 
-export default function ReviewDetailRating() {
+export default function ReviewDetailRating({ setRatingCount }) {
   const navigate = useNavigate();
   const [ratingData, setRatingData] = useState({
     averageRating: 0,
@@ -35,6 +35,7 @@ export default function ReviewDetailRating() {
         totalReview: response.data.result.totalReview,
         ratingCount: response.data.result.ratingCount,
       }));
+      setRatingCount(response.data.result.ratingCount);
       // console.log("별점 통계 조회: ", response.data.result); // 성공
     } catch (error) {
       console.error("별점 통계 조회 실패:", error.response?.data || error.message);
